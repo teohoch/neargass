@@ -331,14 +331,14 @@ DPA API.</p>
       <pre class="lines">
 
 
-12
 13
 14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/dpa_consumer.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'app/lib/dpa_consumer.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_communes'>communes</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/comunas</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -374,10 +374,10 @@ DPA API</p>
   
     <li>
       
-        <span class='name'>region_code</span>
+        <span class='name'>province_code</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Numeric</tt>)</span>
       
       
       
@@ -416,14 +416,14 @@ DPA API</p>
       <pre class="lines">
 
 
-30
 31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/dpa_consumer.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'app/lib/dpa_consumer.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_communes_in_province'>communes_in_province</span><span class='lparen'>(</span><span class='id identifier rubyid_province_code'>province_code</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/provincias/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_province_code'>province_code</span><span class='embexpr_end'>}</span><span class='tstring_content'>/comunas/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -462,7 +462,7 @@ DPA API</p>
         <span class='name'>region_code</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Numeric</tt>)</span>
       
       
       
@@ -564,14 +564,14 @@ DPA API</p>
       <pre class="lines">
 
 
-20
 21
 22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/dpa_consumer.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'app/lib/dpa_consumer.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_provinces'>provinces</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/provincias</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -610,7 +610,7 @@ DPA API</p>
         <span class='name'>region_code</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Numeric</tt>)</span>
       
       
       
@@ -736,7 +736,7 @@ DPA API</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Oct  8 02:14:19 2017 by
+  Generated on Mon Oct  9 18:25:48 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>

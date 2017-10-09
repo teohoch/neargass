@@ -7,6 +7,7 @@ class DPAConsumer
   include HTTParty
   base_uri 'http://apis.modernizacion.cl/dpa'
 
+
   # @return [JSON Object] Returns a JSON Object with all the Communes in the
   #   DPA API
   def communes
@@ -23,7 +24,7 @@ class DPAConsumer
     JSON.parse(response.body)
   end
 
-  # @param [Integer] region_code Numeric code corresponding to the desired
+  # @param [Numeric] province_code Numeric code corresponding to the desired
   #   Region
   # @return [JSON Object] Returns a JSON Object with all the Communes from the
   #   desired Region in the DPA API
@@ -33,7 +34,6 @@ class DPAConsumer
     JSON.parse(response.body)
   end
 
-
   # @return [JSON Object] Returns a JSON Object with all the Regions in the
   #   DPA API
   def regions
@@ -42,7 +42,7 @@ class DPAConsumer
     JSON.parse(response.body)
   end
 
-  # @param [Integer] region_code Numeric code corresponding to the desired
+  # @param [Numeric] region_code Numeric code corresponding to the desired
   #   Region
   # @return [JSON Object] Returns a JSON Object with all the Provinces from the
   #   desired Region in the DPA API
@@ -52,7 +52,7 @@ class DPAConsumer
     JSON.parse(response.body)
   end
 
-  # @param [Integer] region_code Numeric code corresponding to the desired
+  # @param [Numeric] region_code Numeric code corresponding to the desired
   #   Region
   # @return [JSON Object] Returns a JSON Object with all the Communes from the
   #   desired Region in the DPA API
@@ -61,8 +61,4 @@ class DPAConsumer
     raise 'Error ' + response.code.to_s + ' from server.' if response.code != 200
     JSON.parse(response.body)
   end
-
-
-
-
 end

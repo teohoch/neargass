@@ -1,2 +1,15 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
+<h1>Bienvenido a NearGas</h1>
+
+  <%= simple_form_for :locations, url: '/stations.js', remote: true do |f| %>
+    <div class="row vertical-align">
+      <div class="form-inputs col-md-5">
+        <%= f.input :code, as: :string %>
+      </div>
+      <div class="form-actions col-md-4">
+        <%= f.button :submit %>
+      </div>
+    </div>
+  <% end %>
+
+
+<div id="stations_table_output"></div>

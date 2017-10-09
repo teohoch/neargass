@@ -1,5 +1,8 @@
-app/lib/cne_consumer.rb 21a866e63157e85b16b70bafdaa2bbe5ceb650ef
-app/lib/dpa_consumer.rb ec1e411545ca6045ad625ad48dc5f75eb1cf7123
+app/models/region.rb 1e73e34b6cc3f8713bbb7c714c2576f840fcae5f
+app/models/commune.rb 7bdaa6ee09cb7f60be641f448832f83c7cc04a74
+app/models/province.rb 149e6181d4c2e1c920a97d7847308b359fc928b7
+app/lib/cne_consumer.rb 3bc787c4b8f572cbce7745e75b481d1b6050c487
+app/lib/dpa_consumer.rb 58f31aadf4489eaab489a493c19f6e33bac688ad
 app/helpers/home_helper.rb 06fe7c399d2e519deba66a60aae6492d8f880aa2
 app/jobs/application_job.rb 9a24c3e30cfb517943d8774df4695ba794bfd69d
 app/models/application_record.rb b40193a5447806d689d114a0f55f392ae7c199e4

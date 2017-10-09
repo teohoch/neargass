@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.full_name %></td>
+        <td><%= location.code %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

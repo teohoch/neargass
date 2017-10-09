@@ -1,0 +1,32 @@
+<div id="stations_table_output">
+  <h1>Estaciones</h1>
+
+  <table class="table table-responsive table-bordered table-striped text-center">
+    <thead>
+    <tr>
+      <th>Distribuidor</th>
+      <th>Direccion</th>
+      <th>Precio 93</th>
+      <th>Precio 95</th>
+      <th>Precio 97</th>
+      <th>Diesel</th>
+      <th>Gas Licuado Vehicular</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @stations.each do |station| %>
+        <tr>
+          <td><%= image_tag station['distribuidor']['logo'], width:  '64px' %></td>
+          <td><%= station['direccion_calle'] + ' ' + station['direccion_numero'] %></td>
+          <td><%= to_currency(station['precios']['gasolina 93'])%></td>
+          <td><%= to_currency(station['precios']['gasolina 95']) %></td>
+          <td><%= to_currency(station['precios']['gasolina 97']) %></td>
+          <td><%= to_currency(station['precios']['petroleo diesel'])%></td>
+          <td><%= to_currency(station['precios']['glp vehicular']) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
