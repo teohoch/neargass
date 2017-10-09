@@ -8,12 +8,12 @@ class CNEConsumer
   include HTTParty
   base_uri 'http://api.cne.cl'
 
-  def initialize
-    @token = 'G005wT96IA'
+  def initialize(token = 'G005wT96IA')
+    @token = token
   end
 
-  # @param [Integer] region
-  # @param [Integer] commune
+  # @param [Numeric] region
+  # @param [Numeric] commune
   # @return [JSON Object] JSON Object with the requested data
   def gas_stations_by_location(region: nil, commune: nil)
     if region.nil? and commune.nil?
