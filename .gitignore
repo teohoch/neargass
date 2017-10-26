@@ -112,6 +112,7 @@ bower.json
 !/.rspec
 /doc/rdoc/
 .idea/
+
 /export_secrets.sh
 /public/assets/
 /rspec_results/
