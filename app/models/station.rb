@@ -3,6 +3,16 @@ class Station < ApplicationRecord
   belongs_to :distributor
   has_many :price_updates
 
+  scope :nearest, lambda { |latitude, longitude|
+    order("ST_Distance(location, ST_GeographyFromText('POINT(#{latitude} #{longitude})'))").limit(1)
+  }
+
+
+  def current_price
+    a = price_updates.where(current: true)
+    a.count>0 ? a.first : nil
+  end
+
   def disallow_updates
     price_updates.each(&:disallow)
   end
@@ -29,7 +39,7 @@ class Station < ApplicationRecord
         s.check = station['metodos_de_pago']['cheque']
         s.bank_card = station['metodos_de_pago']['tarjetas bancarias']
         s.shop_card = station['metodos_de_pago']['tarjetas grandes tiendas']
-        s.location = "(#{station['ubicacion']['latitud']},#{station['ubicacion']['longitud']})"
+        s.location = "POINT(#{station['ubicacion']['latitud']} #{station['ubicacion']['longitud']})"
         s.shop =  station['servicios']['tienda']
         s.pharmacy = station['servicios']['farmacia']
         s.maintenance = station['servicios']['mantencion']

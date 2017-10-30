@@ -12,7 +12,7 @@ class CreateStations < ActiveRecord::Migration[5.1]
       t.boolean :check
       t.boolean :bank_card
       t.boolean :shop_card
-      t.point :location
+      t.st_point :location, geographic: true
       t.boolean :shop
       t.boolean :pharmacy
       t.boolean :maintenance
