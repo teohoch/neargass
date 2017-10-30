@@ -29,7 +29,7 @@ class Station < ApplicationRecord
         s.check = station['metodos_de_pago']['cheque']
         s.bank_card = station['metodos_de_pago']['tarjetas bancarias']
         s.shop_card = station['metodos_de_pago']['tarjetas grandes tiendas']
-        s.location = "(#{station['ubicacion']['longitud']},#{station['ubicacion']['latitud']})"
+        s.location = "(#{station['ubicacion']['latitud']},#{station['ubicacion']['longitud']})"
         s.shop =  station['servicios']['tienda']
         s.pharmacy = station['servicios']['farmacia']
         s.maintenance = station['servicios']['mantencion']

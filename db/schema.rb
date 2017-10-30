@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 20171030161421) do
   create_table "stations", force: :cascade do |t|
     t.string "code"
     t.string "business_name"
-    t.string "string"
     t.string "address_street"
     t.string "address_number"
     t.bigint "commune_id"

@@ -18,7 +18,7 @@ regions.each do |region|
     province_db = Province.create(
       code: province['codigo'],
       name: province['nombre'],
-      location: "(#{province['lat']},#{province['lng']})",
+      location: "(#{province['lng']},#{province['lat']})",
       parent_code: province['codigo_padre'],
       region: region_db)
 
