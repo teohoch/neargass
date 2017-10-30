@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+print('Descargando Comunas y regiones\n')
 
 consumer = DPAConsumer.new
 
@@ -23,13 +24,17 @@ regions.each do |region|
 
     communes = consumer.communes_in_province(province['codigo'])
     communes.each do |commune|
-      commune_db = Commune.create(
+      Commune.create(
         code: commune['codigo'],
         name: commune['nombre'],
-        location: "(#{commune['lat']},#{commune['lng']})",
+        location: "(#{commune['lng']},#{commune['lat']})",
         parent_code: commune['codigo_padre'],
         province: province_db,
         full_name: "#{commune['nombre']}, #{province_db.full_name}")
     end
   end
 end
+
+print('Descargando estaciones\n')
+
+Station.sync_with_cne
