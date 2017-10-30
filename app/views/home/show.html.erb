@@ -3,13 +3,14 @@
   <%= simple_form_for :locations, url: '/stations.js', remote: true do |f| %>
     <div class="row vertical-align">
       <div class="form-inputs col-md-5">
-        <%= f.input :code, as: :string %>
+        <%= f.input :code, as: :string, label: 'Ubicacion' %>
       </div>
       <div class="form-actions col-md-4">
-        <%= f.button :submit %>
+        <%= f.button :submit, 'Mostrar' %>
       </div>
     </div>
   <% end %>
 
+  <div id="map" style='width: 100%;'></div>
 
 <div id="stations_table_output"></div>

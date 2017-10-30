@@ -1,0 +1,14 @@
+<div id="iw-container">
+  <div class="iw-title"><%= station['distribuidor']['nombre'] %></div>
+  <div class="iw-content">
+    <img src="<%= station['distribuidor']['logo'] %>"
+         alt="<%= station['distribuidor']['nombre'] %>"
+         height="115" width="83">
+    <div class="iw-subTitle"><%= "#{station['direccion_calle'].titleize } #{station['direccion_numero'] }"  %></div>
+    <div class="iw-subTitle"><%= "Precios"  %></div>
+    <% station['precios'].each do |key, value| %>
+        <p><%= "#{key.titleize}: $#{value}" %> </p>
+    <% end %>
+  </div>
+  <div class="iw-bottom-gradient"></div>
+</div>

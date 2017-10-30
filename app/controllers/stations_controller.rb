@@ -7,10 +7,19 @@ class StationsController < ApplicationController
     consumer = CNEConsumer.new
     codes = station_params[:code].split(',')
     @stations = consumer.gas_stations_by_location(commune: codes)
+    @empty = @stations.empty?
     rendered_stations = (render_to_string partial: 'index_partial', locals: { stations: @stations }).to_json
     respond_to do |format|
       format.html
-      format.js { render 'index', locals: { rendered_stations: rendered_stations }}
+      format.js {
+        counter = 0
+        @markers_hash = Gmaps4rails.build_markers(@stations) do |station, marker|
+          marker.lat station['ubicacion']['latitud']
+          marker.lng station['ubicacion']['longitud']
+          marker.infowindow render_to_string(:partial => "infowindow", :locals => { :station => station})
+          counter += 1
+        end
+        render 'index', locals: { rendered_stations: rendered_stations, markers_hash: @markers_hash, empty: @empty }}
       format.json
     end
   end
