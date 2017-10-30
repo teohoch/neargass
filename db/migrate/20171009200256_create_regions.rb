@@ -3,8 +3,7 @@ class CreateRegions < ActiveRecord::Migration[5.1]
     create_table :regions do |t|
       t.integer :code
       t.string :name
-      t.point :location
-
+      t.st_point :location, geographic: true
       t.timestamps
     end
   end

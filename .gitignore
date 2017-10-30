@@ -114,3 +114,4 @@ bower.json
 .idea/
 /export_secrets.sh
 /public/assets/
+/config/database.yml

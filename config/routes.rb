@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/show'
+  get 'geolocations' => 'geolocations#show'
   root to: 'home#show'
   resources :locations, only: %I[index show]
   match 'stations', to: 'stations#index', via: %I[get post]

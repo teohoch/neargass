@@ -33,6 +33,9 @@ GEM
       activemodel (= 5.1.0)
       activesupport (= 5.1.0)
       arel (~> 8.0)
+    activerecord-postgis-adapter (5.0.2)
+      activerecord (~> 5.1)
+      rgeo-activerecord (~> 5.1)
     activesupport (5.1.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -105,6 +108,7 @@ GEM
       railties (>= 3.2.16)
     js_regex (1.2.3)
       regexp_parser (>= 0.3.6, <= 0.5.0)
+    json (2.0.2)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -171,6 +175,10 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     regexp_parser (0.4.3)
+    rgeo (0.6.0)
+    rgeo-activerecord (5.1.1)
+      activerecord (~> 5.0)
+      rgeo (~> 0.3)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -253,6 +261,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgis-adapter
   better_errors
   binding_of_caller
   byebug
@@ -265,11 +274,13 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  json
   listen (>= 3.0.5, < 3.2)
   meta_request
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.0)
+  rgeo-activerecord
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
@@ -285,4 +296,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
