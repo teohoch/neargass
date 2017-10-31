@@ -28,6 +28,13 @@ class CNEConsumer
     JSON.parse(response.body)['data']
   end
 
+  def all
+    query = { token: @token }
+    response = self.class.get('/v3/combustibles/vehicular/estaciones',query: query)
+    raise 'Error ' + response.code.to_s + ' from server.' if response.code != 200
+    JSON.parse(response.body)['data']
+  end
+
   private
 
   def formater(input)

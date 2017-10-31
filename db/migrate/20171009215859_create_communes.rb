@@ -3,7 +3,7 @@ class CreateCommunes < ActiveRecord::Migration[5.1]
     create_table :communes do |t|
       t.integer :code
       t.string :name
-      t.point :location
+      t.st_point :location, geographic: true
       t.integer :parent_code
       t.integer :parent_code
       t.references :province, foreign_key: true
