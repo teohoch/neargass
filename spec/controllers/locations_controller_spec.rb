@@ -57,12 +57,9 @@ RSpec.describe LocationsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "returns a success response" do
-      get :new, params: {}, session: valid_session
-      expect(response).to be_success
-    end
-  end
+=begin
+/*estos dicen que no tiene problemas, pero al parecer no son necesarios*/
+=end
 
   describe "GET #edit" do
     it "returns a success response" do
@@ -74,16 +71,7 @@ RSpec.describe LocationsController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Location" do
-        expect {
-          post :create, params: {location: valid_attributes}, session: valid_session
-        }.to change(Location, :count).by(1)
-      end
 
-      it "redirects to the created location" do
-        post :create, params: {location: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Location.last)
-      end
     end
 
     context "with invalid params" do

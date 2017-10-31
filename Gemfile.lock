@@ -105,6 +105,7 @@ GEM
       railties (>= 3.2.16)
     js_regex (1.2.3)
       regexp_parser (>= 0.3.6, <= 0.5.0)
+    json (2.1.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -265,6 +266,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  json
   listen (>= 3.0.5, < 3.2)
   meta_request
   pg (~> 0.18)
@@ -285,4 +287,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.14.6
+   1.16.0.pre.3
