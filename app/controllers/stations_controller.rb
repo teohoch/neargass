@@ -4,9 +4,11 @@ class StationsController < ApplicationController
   # GET /stations
   # GET /stations.json
   def index
-    consumer = CNEConsumer.new
+    #consumer = CNEConsumer.new
     codes = station_params[:code].split(',')
-    @stations = consumer.gas_stations_by_location(commune: codes)
+    commune = Commune.all.where(code: codes)
+    @stations = commune.nil? ? Array.new : Station.all.where(commune_id: commune.map{|c| c.id})
+    #consumer.gas_stations_by_location(commune: codes)
     @empty = @stations.empty?
     rendered_stations = (render_to_string partial: 'index_partial', locals: { stations: @stations }).to_json
     respond_to do |format|
@@ -14,8 +16,8 @@ class StationsController < ApplicationController
       format.js {
         counter = 0
         @markers_hash = Gmaps4rails.build_markers(@stations) do |station, marker|
-          marker.lat station['ubicacion']['latitud']
-          marker.lng station['ubicacion']['longitud']
+          marker.lat station.location.x
+          marker.lng station.location.y
           marker.infowindow render_to_string(:partial => "infowindow", :locals => { :station => station})
           counter += 1
         end

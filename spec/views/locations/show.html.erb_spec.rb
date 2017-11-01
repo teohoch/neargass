@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "locations/show", type: :view do
-  before(:each) do
-    @location = assign(:location, Location.create!(
-      :index => "Index",
-      :show => "Show"
-    ))
-  end
-
+=begin
+ # =begin
+ # /*location index hacer tres:
+ # responda en json
+ # javascrip (muy complicada, después verlo)
+ # htlml*/
+ # =end
+=end
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Index/)

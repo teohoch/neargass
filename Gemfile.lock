@@ -108,7 +108,11 @@ GEM
       railties (>= 3.2.16)
     js_regex (1.2.3)
       regexp_parser (>= 0.3.6, <= 0.5.0)
+<<<<<<< HEAD
     json (2.0.2)
+=======
+    json (2.1.0)
+>>>>>>> 80f0d7519c70189b7ec65e41fc1a9378daa27148
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -295,4 +299,8 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.15.4
+=======
+   1.16.0.pre.3
+>>>>>>> 80f0d7519c70189b7ec65e41fc1a9378daa27148
