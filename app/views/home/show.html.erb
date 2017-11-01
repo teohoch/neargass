@@ -2,11 +2,24 @@
 
   <%= simple_form_for :locations, url: '/stations.js', remote: true do |f| %>
     <div class="row vertical-align">
-      <div class="form-inputs col-md-5">
+      <div class="form-inputs col-md-7">
         <%= f.input :code, as: :string, label: 'Ubicacion' %>
+        <section>
+
+          <div class ="checkboxThree">
+            <input type="checkbox" value="0" id="checkboxThreeInput" name="locations[geo]"/>
+            <label for="checkboxThreeInput" id="geo_slider">Geolocalizacion</label>
+          </div>
+        </section>
+        <%= f.input :latlong, as: :hidden, input_html: { id: 'latlong' } %>
       </div>
       <div class="form-actions col-md-4">
-        <%= f.button :submit, 'Mostrar' %>
+        <%= f.button :button, type: :submit, id: 'nearest_button', value: 'nearest' do %>
+            Mas cercano
+        <% end %>
+        <%= f.button :button, type: :submit, id: 'zone_button', value: 'zone' do %>
+            Estaciones de la Zona
+        <% end %>
       </div>
     </div>
   <% end %>

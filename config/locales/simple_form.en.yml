@@ -10,6 +10,13 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+
+    labels:
+      home:
+        nearest: "Mas Cercano"
+        zone: "Bencineras de la Zona"
+
+
     # Examples
     # labels:
     #   defaults:

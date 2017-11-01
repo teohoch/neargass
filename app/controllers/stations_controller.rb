@@ -7,6 +7,27 @@ class StationsController < ApplicationController
     consumer = CNEConsumer.new
     codes = station_params[:code].split(',')
     @stations = consumer.gas_stations_by_location(commune: codes)
+
+#    if button_params == 'nearest'
+#      if station_params[:geo]
+#        geolocation = station_params[:latlong].split(',')
+#        @stations = Station.nearest(geolocation[0], geolocation[1]).all
+#      else
+#
+#      end
+#    else
+#      if station_params[:geo]
+#        geolocation = station_params[:latlong].split(',')
+#        @stations = Station.all.where(commune: (Station.nearest(geolocation[0], geolocation[1]).first).commune)
+#      else
+#
+#      end
+#
+#    end
+
+
+
+
     @empty = @stations.empty?
     rendered_stations = (render_to_string partial: 'index_partial', locals: { stations: @stations }).to_json
     respond_to do |format|
@@ -37,6 +58,10 @@ class StationsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def station_params
-    params.require('locations').permit('code')
+    params.require(:locations).permit(:code, :latlong, :geo)
+  end
+
+  def button_params
+    params.require(:button)
   end
 end
