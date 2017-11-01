@@ -7,4 +7,10 @@ RSpec.describe "Locations", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+  describe "GET /locations.json" do
+    it "works! (now write some real specs)" do
+      get locations_path
+      expect(response).to have_http_status(200)
+    end
+  end
 end

@@ -4,6 +4,7 @@ class CreateRegions < ActiveRecord::Migration[5.1]
       t.integer :code
       t.string :name
       t.st_point :location, geographic: true
+
       t.timestamps
     end
   end

@@ -16,4 +16,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.tokeninput
+//= require underscore
+//= require gmaps/google
 //= require_tree .
+

@@ -4,3 +4,4 @@
 jQuery ->
   $('#locations_code').tokenInput '/locations.json', theme: 'facebook', queryParam: 'name'
 
+
