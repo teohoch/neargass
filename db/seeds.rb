@@ -19,7 +19,7 @@ regions.each do |region|
     province_db = Province.create(
       code: province['codigo'],
       name: province['nombre'],
-      location: "POINT(#{province['lng']} #{province['lat']})",
+      location: "POINT(#{province['lat']} #{province['lng']})",
       parent_code: province['codigo_padre'],
       region: region_db)
 
@@ -28,7 +28,7 @@ regions.each do |region|
       Commune.create(
         code: commune['codigo'],
         name: commune['nombre'],
-        location: "POINT(#{commune['lng']} #{commune['lat']})",
+        location: "POINT(#{commune['lat']} #{commune['lng']})",
         parent_code: commune['codigo_padre'],
         province: province_db,
         full_name: "#{commune['nombre']}, #{province_db.full_name}")

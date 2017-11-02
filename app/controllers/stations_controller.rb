@@ -5,27 +5,26 @@ class StationsController < ApplicationController
   # GET /stations.json
   def index
     #consumer = CNEConsumer.new
-    codes = station_params[:code].split(',')
-    commune = Commune.all.where(code: codes)
-    @stations = commune.nil? ? Array.new : Station.all.where(commune_id: commune.map{|c| c.id})
-    #consumer.gas_stations_by_location(commune: codes)
 
-#    if button_params == 'nearest'
-#      if station_params[:geo]
-#        geolocation = station_params[:latlong].split(',')
-#        @stations = Station.nearest(geolocation[0], geolocation[1]).all
-#      else
-#
-#      end
-#    else
-#      if station_params[:geo]
-#        geolocation = station_params[:latlong].split(',')
-#        @stations = Station.all.where(commune: (Station.nearest(geolocation[0], geolocation[1]).first).commune)
-#      else
-#
-#      end
-#
-#    end
+
+
+    if button_params == 'nearest'
+      if station_params[:geo]
+        geolocation = station_params[:latlong].split(',')
+        @stations = Station.nearest(geolocation[0], geolocation[1]).all
+      else
+        raise ArgumentError
+      end
+    else
+      if station_params[:geo]
+        geolocation = station_params[:latlong].split(',')
+        @stations = Station.all.where(commune: (Station.nearest(geolocation[0], geolocation[1]).first).commune)
+      else
+        codes = station_params[:code].split(',')
+        commune = Commune.all.where(code: codes)
+        @stations = commune.nil? ? Array.new : Station.all.where(commune_id: commune.map{|c| c.id})
+      end
+    end
 
 
 
