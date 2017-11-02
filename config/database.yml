@@ -20,6 +20,9 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: Bencinera
+  password: mysecretpassword
 
 development:
   <<: *default
@@ -44,7 +47,7 @@ development:
   #port: 5432
 
   # Schema search path. The server defaults to $user,public
-  #schema_search_path: myapp,sharedapp,public
+  #schema_search_path: public, postgis
 
   # Minimum log levels, in increasing order:
   #   debug5, debug4, debug3, debug2, debug1,
