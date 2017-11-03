@@ -6,8 +6,6 @@ class StationsController < ApplicationController
   def index
     #consumer = CNEConsumer.new
 
-
-
     if button_params == 'nearest'
       if station_params[:geo]
         geolocation = station_params[:latlong].split(',')
@@ -18,11 +16,11 @@ class StationsController < ApplicationController
     else
       if station_params[:geo]
         geolocation = station_params[:latlong].split(',')
-        @stations = Station.all.where(commune: (Station.nearest(geolocation[0], geolocation[1]).first).commune)
+        @stations = Station.where(commune: (Station.nearest(geolocation[0], geolocation[1]).first).commune).order(:average_price)
       else
         codes = station_params[:code].split(',')
         commune = Commune.all.where(code: codes)
-        @stations = commune.nil? ? Array.new : Station.all.where(commune_id: commune.map{|c| c.id})
+        @stations = commune.nil? ? Array.new : Station.all.where(commune_id: commune.map{|c| c.id}).order(:average_price)
       end
     end
 

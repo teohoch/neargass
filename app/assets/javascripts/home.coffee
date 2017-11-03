@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-  $('#locations_code').tokenInput '/locations.json', theme: 'facebook', queryParam: 'name'
+  $('#locations_code').tokenInput '/locations.json', theme: 'facebook', queryParam: 'name', hintText: 'Ingrese la comuna a buscar', noResultsText: 'No se encontraron resultados', searchingText: 'Buscando...'
 
   send_location = (location) ->
     $('#latlong').val location.coords.latitude + "," + location.coords.longitude

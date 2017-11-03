@@ -46,8 +46,9 @@ class Station < ApplicationRecord
         s.self_service = station['servicios']['autoservicio']
         s.commune = commune
         s.distributor = distributor
+        s.average_price =
+            (station['precios'].map{|k,v| ['gasolina 93','gasolina 95','gasolina 97','petroleo diesel'].include?(k) ? v : 99999}.sum)/(station['precios'].keys.count)
       end
-
       PriceUpdate.
         create(station: sta,
                gas_93: station['precios'].key?('gasolina 93') ? station['precios']['gasolina 93'] : nil,

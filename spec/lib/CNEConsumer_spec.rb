@@ -14,6 +14,6 @@ describe 'CNE Consumer'  do
 
   it 'should return a JSON Hash when the request succeeds' do
     result = @consumer.gas_stations_by_location(commune:'05602')
-    expect(result).to be_a_kind_of Hash
+    expect(result).to be_a_kind_of Array
   end
 end

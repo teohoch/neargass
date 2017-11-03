@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030161421) do
+ActiveRecord::Schema.define(version: 20171103070332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20171030161421) do
     t.boolean "self_service"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "average_price"
     t.index ["commune_id"], name: "index_stations_on_commune_id"
     t.index ["distributor_id"], name: "index_stations_on_distributor_id"
   end
