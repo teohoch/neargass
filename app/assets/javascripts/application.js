@@ -14,6 +14,10 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require twitter/bootstrap
 //= require jquery.tokeninput
+//= require underscore
+//= require gmaps/google
 //= require_tree .
+

@@ -1,0 +1,27 @@
+<div id="iw-container">
+  <div class="iw-title"><%= station.distributor.name %></div>
+  <div class="iw-content">
+    <img src="<%= station.distributor.logo %>"
+         alt="<%= station.distributor.name %>"
+         width="83">
+    <div class="iw-subTitle"><%= "#{station.address_street.titleize } #{station.address_number }"  %></div>
+    <div class="iw-subTitle"><%= "Precios"  %></div>
+
+    <% unless station.current_price.gas_93.nil? %>
+        <p>Bencina 93: <%= station.current_price.gas_93 %> </p>
+    <% end %>
+    <% unless station.current_price.gas_95.nil? %>
+        <p>Bencina 95: <%= station.current_price.gas_95 %> </p>
+    <% end %>
+    <% unless station.current_price.gas_97.nil? %>
+        <p>Bencina 95: <%= station.current_price.gas_97 %> </p>
+    <% end %>
+    <% unless station.current_price.diesel.nil? %>
+        <p>Diesel: <%= station.current_price.diesel %> </p>
+    <% end %>
+    <% unless station.current_price.glp.nil? %>
+        <p>Gas Licuado: <%= station.current_price.glp %> </p>
+    <% end %>
+  </div>
+  <div class="iw-bottom-gradient"></div>
+</div>

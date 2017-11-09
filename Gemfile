@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'json'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'
 # Use postgresql as the database for Active Record
@@ -50,6 +50,13 @@ gem 'simple_form'
 gem 'httparty'
 gem 'yard'
 
+gem 'gmaps4rails'
+gem 'underscore-rails'
+
+gem 'activerecord-postgis-adapter'
+
+gem 'jquery-datatables-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -72,7 +79,7 @@ group :development do
 
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
+  #gem 'meta_request'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

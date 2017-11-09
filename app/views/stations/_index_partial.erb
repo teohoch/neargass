@@ -1,32 +1,58 @@
-<div id="stations_table_output">
-  <h1>Estaciones</h1>
+<% if not @empty %>
+  <div id="stations_table_output">
+    <% if @stations.count > 1 %>
+        <br>
+        <h1>Estacion Mas Barata en Promedio</h1>
+        <table class="table table-responsive table-bordered table-striped text-center">
+          <tbody>
+          <% station = @stations.first %>
+              <tr>
+                <td><%= image_tag station.distributor.logo, width:  '64px' %></td>
+                <td><%= station.address_street+ ' ' + station.address_number %></td>
+                <td><%= to_currency(station.current_price.gas_93)%></td>
+                <td><%= to_currency(station.current_price.gas_95) %></td>
+                <td><%= to_currency(station.current_price.gas_97) %></td>
+                <td><%= to_currency(station.current_price.diesel)%></td>
+                <td><%= to_currency(station.current_price.glp) %></td>
+              </tr>
 
-  <table class="table table-responsive table-bordered table-striped text-center">
-    <thead>
-    <tr>
-      <th>Distribuidor</th>
-      <th>Direccion</th>
-      <th>Precio 93</th>
-      <th>Precio 95</th>
-      <th>Precio 97</th>
-      <th>Diesel</th>
-      <th>Gas Licuado Vehicular</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @stations.each do |station| %>
-        <tr>
-          <td><%= image_tag station['distribuidor']['logo'], width:  '64px' %></td>
-          <td><%= station['direccion_calle'] + ' ' + station['direccion_numero'] %></td>
-          <td><%= to_currency(station['precios']['gasolina 93'])%></td>
-          <td><%= to_currency(station['precios']['gasolina 95']) %></td>
-          <td><%= to_currency(station['precios']['gasolina 97']) %></td>
-          <td><%= to_currency(station['precios']['petroleo diesel'])%></td>
-          <td><%= to_currency(station['precios']['glp vehicular']) %></td>
-        </tr>
+          </tbody>
+        </table>
     <% end %>
-    </tbody>
-  </table>
-  <br>
-</div>
+
+    <h1>Estaciones</h1>
+
+    <table id="stations_table" class="display index_table" data-language='<%= datatable_language %>'>
+      <thead>
+      <tr>
+        <th>Distribuidor</th>
+        <th>Direccion</th>
+        <th>Precio 93</th>
+        <th>Precio 95</th>
+        <th>Precio 97</th>
+        <th>Diesel</th>
+        <th>Gas Licuado Vehicular</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @stations.each do |station| %>
+          <tr>
+            <td><%= image_tag station.distributor.logo, width:  '64px' %></td>
+            <td><%= station.address_street+ ' ' + station.address_number %></td>
+            <td><%= to_currency(station.current_price.gas_93)%></td>
+            <td><%= to_currency(station.current_price.gas_95) %></td>
+            <td><%= to_currency(station.current_price.gas_97) %></td>
+            <td><%= to_currency(station.current_price.diesel)%></td>
+            <td><%= to_currency(station.current_price.glp) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+  </div>
+<% else %>
+    <div id="stations_table_output">
+      <h3>No existen estaciones de combustible en esta comuna</h3>
+    </div>
+<% end %>
