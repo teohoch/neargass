@@ -7,7 +7,7 @@ node {
     }
 
     stage('Build Image') {
-      app = docker.build("neargas","-f neargas/Dockerfile .")
+      app = docker.build("neargas","-f jenkins/neargas/Dockerfile .")
     }
     stage('Testing')
     {
