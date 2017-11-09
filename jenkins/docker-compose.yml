@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  postdb:
+    build: psql/
+    container_name: "postdb-neargas-testing"
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "mysecretpassword"
+      BENCINERA_DATABASE_PASSWORD: "mysecretpassword"
+      POSTGRES_USER: "postgres"
+    networks:
+      - neargas-testing
+
+  neargas:
+    build: neargas/
+    container_name: "neargas-testing"
+    restart: unless-stopped
+    depends_on:
+      - postdb
+    environment:
+      BENCINERA_DATABASE_PASSWORD: "mysecretpassword"
+    networks:
+      - neargas-testing
+
+networks:
+  neargas-testing:
+    driver: bridge
