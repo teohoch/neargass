@@ -1,6 +1,6 @@
 # README
 
-[![Build Status](https://jenkins.hochfarber.com/job/NearGas/job/prerelease/6/badge/icon)](https://jenkins.hochfarber.com/job/NearGas/job/prerelease/6/)
+[![Build Status](https://jenkins.hochfarber.com/buildStatus/icon?job=NearGas/prerelease)](https://jenkins.hochfarber.com/job/NearGas/job/prerelease/)
 
 
 * Ruby version >= 2.4
